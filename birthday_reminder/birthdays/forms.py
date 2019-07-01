@@ -6,5 +6,6 @@ class BirthdayFrom(forms.ModelForm):
         model = models.Birthday
         fields = [
             "name",
-            "date_of_birth"
+            "month",
+            "day"
         ]
