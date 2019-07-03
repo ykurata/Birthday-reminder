@@ -1,14 +1,70 @@
-from django.shortcuts import render
-# from django.views import generic
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect
 
 from . import models
 from . import forms
 
 
+@login_required
+def birthday_list(request):
+    """show birthdays list"""
+    birthdays = models.Birthday.object.all()
+    return(request, 'birthday/birthday_list.html', {
+        'birthdays': birthdays
+    })
+
+
+@login_required
 def create_birthday(request, pk=None):
+    """create a new birthday"""
     form = forms.BirthdayFrom()
+
+    if request.method == "POST":
+        form = forms.BirthdayFrom(request.POST)
+
+        if form.is_valid():
+            birthday = form.save(commit=False)
+            birthday.user = user
+            birthday.save()
+        return HttpResponseRedirect(reverse("home"))
 
     return render(
         request,
         'birthday/birthday_form.html', {
         'form': form })
+
+
+@login_required
+def edit_birthday(request, pk):
+    """update a birthday"""
+    try:
+        birthday = models.Birthday.get_object_or_404(pk=pk, user=request.user)
+    except ObjectDoesNotExist:
+        birthday = None
+
+    form = forms.birthdayForm(instance=birthday)
+
+    if request == "POST":
+        form = forms.BirthdayFrom(request.POST)
+
+        if form.is_valid():
+            birthday = form.save(commit=False)
+            birthday.user = user
+            birthday.save()
+        return HttpResponseRedirect(reverse("home"))
+    return  render(
+        request,
+        'birthday/birthday_form.html', {
+        'form': form })
+
+
+@login_required
+def delete_birthday(request, pk):
+    """delete a birthday"""
+    try:
+        birthday = models.Birthday.get_object_or_404(pk=pk, user=request.user)
+    except ObjectDoesNotExist:
+        birthday = None
+    birthday.delete()
+    return redirect('home')

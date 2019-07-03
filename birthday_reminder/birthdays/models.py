@@ -65,7 +65,7 @@ class Birthday(models.Model):
         (31, 31)
     )
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
     name = models.CharField(max_length=100)
     month = models.CharField(
         max_length=100,
