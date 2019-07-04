@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 
@@ -9,10 +10,8 @@ from . import forms
 @login_required
 def birthday_list(request):
     """show birthdays list"""
-    birthdays = models.Birthday.object.all()
-    return(request, 'birthday/birthday_list.html', {
-        'birthdays': birthdays
-    })
+    birthdays = models.Birthday.objects.all()
+    return render(request, 'birthday/birthday_list.html', {'birthdays': birthdays})
 
 
 @login_required
@@ -25,7 +24,7 @@ def create_birthday(request, pk=None):
 
         if form.is_valid():
             birthday = form.save(commit=False)
-            birthday.user = user
+            birthday.user = request.user
             birthday.save()
         return HttpResponseRedirect(reverse("home"))
 
