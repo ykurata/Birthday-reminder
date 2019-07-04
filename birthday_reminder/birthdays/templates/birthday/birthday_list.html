@@ -2,8 +2,12 @@
 {% load static from staticfiles %}
 
 {% block body_content %}
-  {% for birthday in birthdays %}
-    {{ birthday.name }}
-    {{ birthday.month }} {{ birthday.day }}
-  {% endfor %}
+  <ul>
+    {% for birthday in birthdays %}
+      <li>
+        <a href="{% url "birthdays:edit" pk=birthday.pk %}">{{ birthday.name }}</a>
+        {{ birthday.month }} {{ birthday.day }}
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock %}
