@@ -5,10 +5,22 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title_tag %}Birthday Reminder{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-  </head>
   <body>
+    <nav>
+      <h2><a href="/">Home</a></h2>
+      <ul>
+        {% if user.is_authenticated %}
+          <li>Hello {{ user.username }} !<li>
+          <li><a href="account/logout">Log Out</a></li>
+        {% else %}
+          <li><a href="{% url "accounts:signup" %}">Sign Up</a></li>
+          <li><a href="{% url "accounts:login" %}">Sign In</a></li>
+        {% endif %}
+      </ul>
+    </nav>
     {% block body_content %}{% endblock %}
   </body>
 </html>

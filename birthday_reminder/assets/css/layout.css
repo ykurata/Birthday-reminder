@@ -1,0 +1,131 @@
+body {
+  background: url('/static/images/blue.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: black;
+}
+
+
+/* Style for nav bar  */
+nav {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 40px;
+  color: white;
+  font-size: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+nav ul li a:hover {
+  color: black;
+}
+
+nav h2 {
+  color: black;
+  margin-left: 40px;
+}
+
+nav h2:hover {
+  color: white;
+}
+
+/* Style for home.html  */
+.home {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.home h1 {
+  color: white;
+  font-size: 50px;
+  margin-top: 50px;;
+  margin-bottom: 20px;
+}
+
+
+/* Style for forms */
+.container {
+  width: 60%;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 230px;
+  border: 1px solid #aaa;
+  box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+  margin-top: 100px;
+}
+
+.container h2 {
+  margin-bottom: 40px;
+}
+
+form {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+button[type="submit"] {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+/* Style for submit button */
+.submit-button {
+  background-color: #f09ce8; /* Green */
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: white;
+  color: black;
+  border: 2px solid #f09ce8;
+}
+
+.submit-button:hover {
+  background-color: #f09ce8;
+  color: white;
+}
