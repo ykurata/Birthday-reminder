@@ -17,18 +17,18 @@ class Birthday(models.Model):
     # DECEMBER = "December"
 
     MONTH_CHOICES = (
-        ("JANUARY", "January"),
-        ("FEBRUARY", "February"),
-        ("MARCH", "March"),
-        ("APRIL", "April"),
-        ("MAY", "May"),
-        ("JUNE", "June"),
-        ("JULY", "July"),
-        ("AUGUST", "August"),
-        ("SEPTEMBER", "September"),
-        ("OCTOBER", "October"),
-        ("NOVEMBER", "November"),
-        ("DECEMBER", "December")
+        ("January", "January"),
+        ("February", "February"),
+        ("March", "March"),
+        ("April", "April"),
+        ("May", "May"),
+        ("June", "June"),
+        ("July", "July"),
+        ("August", "August"),
+        ("September", "September"),
+        ("October", "October"),
+        ("November", "November"),
+        ("December", "December")
     )
 
     DAY_CHOICES = (

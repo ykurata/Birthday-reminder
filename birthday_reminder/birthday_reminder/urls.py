@@ -23,8 +23,8 @@ from . import settings, views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name="home"),
-    url(r'^account/', include('accounts.urls', namespace="accounts")),
-    url(r'^birthday/', include('birthdays.urls', namespace="birthdays")),
+    url(r'^accounts/', include('accounts.urls', namespace="accounts")),
+    url(r'^birthdays/', include('birthdays.urls', namespace="birthdays")),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

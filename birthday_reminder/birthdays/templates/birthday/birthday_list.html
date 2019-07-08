@@ -2,12 +2,15 @@
 {% load static from staticfiles %}
 
 {% block body_content %}
-  <ul>
+  <div class="container">
     {% for birthday in birthdays %}
-      <li>
-        <a href="{% url "birthdays:edit" pk=birthday.pk %}">{{ birthday.name }}</a>
-        {{ birthday.month }} {{ birthday.day }}
-      </li>
+      <div class="inner-container" style="background-color:pink">
+        <div class="list-container">
+          <h4><b>{{ birthday.month }} {{ birthday.day }}</b></h4>
+          <p>{{ birthday.name }}</p>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
+
 {% endblock %}

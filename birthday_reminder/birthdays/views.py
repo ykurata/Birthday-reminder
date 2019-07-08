@@ -11,7 +11,7 @@ from . import forms
 @login_required
 def birthday_list(request):
     """show birthdays list"""
-    birthdays = models.Birthday.objects.all()
+    birthdays = models.Birthday.objects.all().order_by('month').order_by('day')
     return render(request, 'birthday/birthday_list.html', {'birthdays': birthdays})
 
 
