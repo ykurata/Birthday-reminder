@@ -67,6 +67,7 @@ class Birthday(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     name = models.CharField(max_length=100)
+
     month = models.CharField(
         max_length=100,
         choices=MONTH_CHOICES,
