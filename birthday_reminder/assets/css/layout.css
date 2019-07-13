@@ -23,14 +23,13 @@ body {
   font-family: 16px Arial, Helvetica, sans-serif;
 } */
 
-a {
+ a {
   text-decoration: none;
-  color: white;
 }
 
-a:hover {
+/* a:hover {
   color: black;
-}
+}  */
 
 
 
@@ -45,13 +44,13 @@ nav {
   width: 100%;
 }
 
-nav h2 {
+nav h2 a {
   font-size: 30px;
   color: white;
   margin-left: 40px;
 };
 
-nav h2:hover {
+nav h2 a:hover {
   color: black;
 }
 
@@ -65,7 +64,6 @@ nav ul li {
 }
 
 nav ul li a {
-  text-decoration: none;
   color: white;
 }
 
@@ -99,16 +97,24 @@ nav ul li.username {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.home h2 a {
+  color: white;
+}
+
+.home h2 a:hover {
+  color: black;
+}
 
 /* Style for forms */
-.message {
+#message {
   width: 60%;
   text-align: center;
   color: white;
   margin-top: 100px;
+  margin-left: 230px;
 }
 
-.message h3 {
+#message h3 {
   text-align: center;
 }
 
@@ -117,7 +123,7 @@ nav ul li.username {
   text-align: center;
   background-color: white;
   border-radius: 10px;
-  margin-top: 200px;
+  margin-top: 150px;
   margin-left: 230px;
   border: 1px solid #aaa;
   box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
@@ -131,6 +137,20 @@ form {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+form .cancel-div {
+  margin-bottom: 20px;
+}
+
+
+form .cancel {
+  color: black;
+}
+
+form .cancel:hover {
+  color: grey
+}
+
 
 button[type="submit"] {
   text-align: center;
@@ -179,6 +199,14 @@ button[type="submit"] {
   padding: 8px;
 }
 
+#birthdays td a {
+  color:black;
+}
+
+#birthdays td a:hover {
+  color:grey;
+}
+
 #birthdays tr:nth-child(even){background-color: #f2f2f2;}
 
 #birthdays tr:hover {background-color: #ddd;}
@@ -189,4 +217,19 @@ button[type="submit"] {
   text-align: center;
   background-color: #ff99bb;
   color: white;
+}
+
+
+/* Style for cancel confirmation page */
+.cancel-div {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.cancel-button {
+  color: black;
+}
+
+.cancel-button:hover {
+  color: grey;
 }

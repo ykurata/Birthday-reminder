@@ -2,8 +2,8 @@
 {% load static from staticfiles %}
 
 {% block body_content %}
-  <div class="message">
-    <h3 >{{ message }}<h3>
+  <div id="message">
+    <h3>{{ message }}<h3>
   </div>
   <div class="container">
     <h2>All Birthdays</h2>
@@ -15,8 +15,18 @@
       </tr>
       {% for birthday in birthdays %}
         <tr>
-          <td>{{ birthday.name }}</td>
-          <td>{{ birthday.date_of_birth }}</td>
+          <td>
+            {{ birthday.name }}
+          </td>
+          <td>
+            {{ birthday.date_of_birth }}
+            <a href="{% url "birthdays:edit" pk=birthday.pk %}">
+              <i class="fas fa-pen" style="margin-left:10px"></i>
+            </a>
+            <a href="{% url "birthdays:confirm" pk=birthday.pk %}">
+              <i class="fas fa-trash-alt" style="margin-left:10px"></i>
+            </a>
+          </td>
         </tr>
       {% endfor %}
     </table>

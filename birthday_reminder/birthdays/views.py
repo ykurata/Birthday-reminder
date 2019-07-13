@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseRedirect
 
 from datetime import date
@@ -35,7 +35,7 @@ def create_birthday(request, pk=None):
             birthday = form.save(commit=False)
             birthday.user = request.user
             birthday.save()
-        return HttpResponseRedirect(reverse("home"))
+        return HttpResponseRedirect(reverse("birthdays:list"))
 
     return render(
         request,
@@ -65,6 +65,16 @@ def edit_birthday(request, pk):
         request,
         'birthday/birthday_form.html', {
         'form': form })
+
+
+@login_required
+def confirm_delete(request, pk):
+    """Confirm deletion of a birthday"""
+    try:
+        birthday = models.Birthday.objects.get(pk=pk, user=request.user)
+    except ObjectDoesNotExist:
+        birthday = None
+    return render(request, 'birthday/confirm.html', {'birthday': birthday})
 
 
 @login_required
