@@ -108,6 +108,10 @@ nav ul li.username {
   margin-top: 100px;
 }
 
+.message h3 {
+  text-align: center;
+}
+
 .container {
   width: 60%;
   text-align: center;
@@ -164,3 +168,25 @@ button[type="submit"] {
 
 
 /* Style for birthday list  */
+#birthdays {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#birthdays td, #birthdays th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#birthdays tr:nth-child(even){background-color: #f2f2f2;}
+
+#birthdays tr:hover {background-color: #ddd;}
+
+#birthdays th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #ff99bb;
+  color: white;
+}
