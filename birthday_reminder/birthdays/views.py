@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 
-import datetime
+from datetime import date
 
 from . import models
 from . import forms
@@ -13,12 +13,11 @@ from . import forms
 @login_required
 def birthday_list(request):
     """show birthdays list"""
+    # today = date.today()
     message = ""
-    # birthdays = models.Birthday.objects.all()
-
     birthdays = models.Birthday.objects.all().order_by('date_of_birth')
-    if models.Birthday.objects.filter(date_of_birth__startswith=datetime.date.today()):
-        message = "Happy Birthday"
+    # if birthdays.filter(date_of_birth__date=date.today()):
+    #     message = "Happy birthday!"
 
     return render(request, 'birthday/birthday_list.html', {'birthdays': birthdays, 'message': message })
 
