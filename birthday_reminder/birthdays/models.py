@@ -68,11 +68,12 @@ class Birthday(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     name = models.CharField(max_length=100)
-    date_of_birth = YearlessDateField(null=True)
+    date_of_birth = models.DateField(null=True)
+    # date_of_birth = YearlessDateField(null=True)
     # month = models.CharField(
     #     max_length=100,
     #     choices=MONTH_CHOICES,
-    #     default="January"
+        # default="January"
     # )
     # day = models.IntegerField(
     #     choices=DAY_CHOICES,

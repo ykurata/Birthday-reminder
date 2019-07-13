@@ -13,11 +13,12 @@ from . import forms
 @login_required
 def birthday_list(request):
     """show birthdays list"""
-    # today = date.today()
+    today = date.today()
     message = ""
     birthdays = models.Birthday.objects.all().order_by('date_of_birth')
-    # if birthdays.filter(date_of_birth__date=date.today()):
-    #     message = "Happy birthday!"
+    for birthday in birthdays:
+        if birthdays.filter(date_of_birth__month=today.month, date_of_birth__day=today.day):
+            message = birthday.name + " is birthday today! Send message to " + birthday.name + " !"
 
     return render(request, 'birthday/birthday_list.html', {'birthdays': birthdays, 'message': message })
 
@@ -52,8 +53,8 @@ def edit_birthday(request, pk):
 
     form = forms.BirthdayFrom(instance=birthday)
 
-    if request == "POST":
-        form = forms.BirthdayFrom(request.POST)
+    if request.method == "POST":
+        form = forms.BirthdayFrom(request.POST, instance=birthday)
 
         if form.is_valid():
             birthday = form.save(commit=False)
