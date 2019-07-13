@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from djangoyearlessdate.models import YearlessDateField
 
 
 class Birthday(models.Model):
@@ -67,16 +68,16 @@ class Birthday(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     name = models.CharField(max_length=100)
-
-    month = models.CharField(
-        max_length=100,
-        choices=MONTH_CHOICES,
-        default="January"
-    )
-    day = models.IntegerField(
-        choices=DAY_CHOICES,
-        default=1
-    )
+    date_of_birth = YearlessDateField(null=True)
+    # month = models.CharField(
+    #     max_length=100,
+    #     choices=MONTH_CHOICES,
+    #     default="January"
+    # )
+    # day = models.IntegerField(
+    #     choices=DAY_CHOICES,
+    #     default=1
+    # )
 
     def __str__(self):
         return self.name

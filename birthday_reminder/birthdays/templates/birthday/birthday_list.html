@@ -3,10 +3,11 @@
 
 {% block body_content %}
   <div class="container">
+    {{ message }}
     {% for birthday in birthdays %}
       <div class="inner-container" style="background-color:pink">
         <div class="list-container">
-          <h4><b>{{ birthday.month }} {{ birthday.day }}</b></h4>
+          <h4><b>{{ birthday.date_of_birth }}</b></h4>
           <p>{{ birthday.name }}</p>
         </div>
       </div>
