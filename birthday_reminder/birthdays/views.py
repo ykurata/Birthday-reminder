@@ -14,13 +14,10 @@ from . import forms
 def birthday_list(request):
     """show birthdays list"""
     today = date.today()
-    message = ""
     birthdays = models.Birthday.objects.all().order_by('date_of_birth')
-    for birthday in birthdays:
-        if birthdays.filter(date_of_birth__month=today.month, date_of_birth__day=today.day):
-            message = birthday.name + " is birthday today! Send message to " + birthday.name + " !"
+    bday = birthdays.filter(date_of_birth__month=today.month, date_of_birth__day=today.day)
 
-    return render(request, 'birthday/birthday_list.html', {'birthdays': birthdays, 'message': message })
+    return render(request, 'birthday/birthday_list.html', {'birthdays': birthdays, 'bday': bday })
 
 
 @login_required
@@ -60,7 +57,7 @@ def edit_birthday(request, pk):
             birthday = form.save(commit=False)
             birthday.user = request.user
             birthday.save()
-        return HttpResponseRedirect(reverse("home"))
+        return HttpResponseRedirect(reverse("birthdays:list"))
     return  render(
         request,
         'birthday/birthday_form.html', {

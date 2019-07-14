@@ -3,7 +3,9 @@
 
 {% block body_content %}
   <div id="message">
-    <h3>{{ message }}<h3>
+    {% for day in bday %}
+      <h3>{{ day.name }} is birthday today! Send message to {{ day.name }} !<h3>
+    {% endfor %}
   </div>
   <div class="container">
     <h2>All Birthdays</h2>
