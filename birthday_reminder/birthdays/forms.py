@@ -8,3 +8,4 @@ class BirthdayFrom(forms.ModelForm):
             "name",
             "date_of_birth"
         ]
+    

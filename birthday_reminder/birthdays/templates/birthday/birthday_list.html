@@ -20,12 +20,14 @@
           </td>
           <td>
             {{ birthday.date_of_birth }}
-            <a href="{% url "birthdays:edit" pk=birthday.pk %}">
-              <i class="fas fa-pen" style="margin-left:10px"></i>
-            </a>
-            <a href="{% url "birthdays:confirm" pk=birthday.pk %}">
-              <i class="fas fa-trash-alt" style="margin-left:10px"></i>
-            </a>
+            {% if birthday.user == request.user %}
+              <a href="{% url "birthdays:edit" pk=birthday.pk %}">
+                <i class="fas fa-pen" style="margin-left:10px"></i>
+              </a>
+              <a href="{% url "birthdays:confirm" pk=birthday.pk %}">
+                <i class="fas fa-trash-alt" style="margin-left:10px"></i>
+              </a>
+            {% endif %}
           </td>
         </tr>
       {% endfor %}
