@@ -4,7 +4,9 @@
 {% block body_content %}
   <div id="message">
     {% for day in bday %}
-      <h3>{{ day.name }} is turned {{ day.age }} years old today! Happy birthday, {{ day.name }} !<h3>
+      {% if day.user == request.user %}
+      <h3>{{ day.name }} turned {{ day.age }} years old today! Happy birthday {{ day.name }} !<h3>
+      {% endif %}
     {% endfor %}
   </div>
   <div class="container">
@@ -16,22 +18,24 @@
         <th>Date of Birth</th>
       </tr>
       {% for birthday in birthdays %}
+        {% if birthday.user == request.user %}
         <tr>
           <td>
             {{ birthday.name }}
           </td>
           <td>
             {{ birthday.date_of_birth }}
-            {% if birthday.user == request.user %}
-              <a href="{% url "birthdays:edit" pk=birthday.pk %}">
-                <i class="fas fa-pen" style="margin-left:10px"></i>
-              </a>
-              <a href="{% url "birthdays:confirm" pk=birthday.pk %}">
-                <i class="fas fa-trash-alt" style="margin-left:10px"></i>
-              </a>
-            {% endif %}
+
+            <a href="{% url "birthdays:edit" pk=birthday.pk %}">
+              <i class="fas fa-pen" style="margin-left:10px"></i>
+            </a>
+            <a href="{% url "birthdays:confirm" pk=birthday.pk %}">
+              <i class="fas fa-trash-alt" style="margin-left:10px"></i>
+            </a>
+
           </td>
         </tr>
+        {% endif %}
       {% endfor %}
     </table>
 

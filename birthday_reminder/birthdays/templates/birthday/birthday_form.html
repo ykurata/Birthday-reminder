@@ -3,14 +3,18 @@
 {% block body_content %}
 <div class="container">
   <h2>Birthday</h2>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="submit-button">Save</button>
-  </br>
-    <div class="cancel-div">
-      <a href="{% url "birthdays:list" %}" class="cancel">Cancel</a>
-    <div>
-  </form>
+  <div class="grid-30" style="width:60%;text-align:center;margin-right:20%;margin-left:20%">
+    <form method="POST" enctype="multipart/form-data" style="text-align:left">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="button" style="text-align:center">
+        <button type="submit" class="submit-button">Save</button>
+      </div>
+    </br>
+      <div class="cancel-div" style="text-align:center">
+        <a href="{% url "birthdays:list" %}" class="cancel">Cancel</a>
+      <div>
+    </form>
+  </div>
 </div>
 {% endblock %}

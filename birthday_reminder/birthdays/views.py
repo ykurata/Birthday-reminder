@@ -82,4 +82,4 @@ def delete_birthday(request, pk):
     except ObjectDoesNotExist:
         birthday = None
     birthday.delete()
-    return redirect('home')
+    return HttpResponseRedirect(reverse("birthdays:list"))

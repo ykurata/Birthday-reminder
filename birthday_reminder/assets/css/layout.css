@@ -152,16 +152,37 @@ form .cancel:hover {
   color: grey
 }
 
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  font-family: "Work Sans", sans-serif;
+}
+
+input:focus {
+  outline: none;
+  border-radius: 8px;
+  border: 2px solid #f09ce8;
+}
+
+.gird-30 {
+  width: 60%;
+}
 
 button[type="submit"] {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   margin-top: 20px;
 }
 
 /* Style for submit button */
 .submit-button {
-  background-color: #f09ce8; /* Green */
+  background-color: #f09ce8;
   border: none;
   border-radius: 20px;
   color: white;
@@ -216,7 +237,7 @@ button[type="submit"] {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #ff99bb;
+  background-color: #f09ce8;
   color: white;
 }
 
