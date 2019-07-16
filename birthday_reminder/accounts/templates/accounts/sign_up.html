@@ -3,7 +3,7 @@
 {% block body_content %}
   <div class="container">
     <h2>Sign Up</h2>
-      <div style="width:60%;text-align:center;margin-right:20%;margin-left:20%">
+      <div class="grid-60" style="width:60%;text-align:center;margin-right:20%;margin-left:20%">
         <form method="POST" enctype="multipart/form-data" style="text-align:left">
           {% csrf_token %}
           {{ form.as_p }}

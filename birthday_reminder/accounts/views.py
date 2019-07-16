@@ -19,3 +19,9 @@ def signup(request):
     else:
         form = forms.UserCreateForm()
     return render(request, 'accounts/sign_up.html', {'form': form})
+
+
+def page_not_found(request):
+    response = render(request, '404.html')
+    response.status_code = 404
+    return response

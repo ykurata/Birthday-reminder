@@ -8,4 +8,9 @@ class BirthdayFrom(forms.ModelForm):
             "name",
             "date_of_birth"
         ]
-    
+
+    date_of_birth = forms.DateField(
+        widget=forms.DateInput(format='%Y-%m-%d'),
+        input_formats=('%Y-%m-%d', ),
+        help_text = "yyyy-mm-dd"
+        )

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block body_content %}
+  <div class="home">
+    <h1>Sorry, page not found!</h1>
+    <h2><a href="{% url "home" %}">Home</a></h2>
+  </div>
+{% endblock %}

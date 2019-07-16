@@ -32,8 +32,7 @@ def create_birthday(request, pk=None):
             birthday = form.save(commit=False)
             birthday.user = request.user
             birthday.save()
-        return HttpResponseRedirect(reverse("birthdays:list"))
-
+            return HttpResponseRedirect(reverse("birthdays:list"))
     return render(
         request,
         'birthday/birthday_form.html', {
@@ -57,7 +56,7 @@ def edit_birthday(request, pk):
             birthday = form.save(commit=False)
             birthday.user = request.user
             birthday.save()
-        return HttpResponseRedirect(reverse("birthdays:list"))
+            return HttpResponseRedirect(reverse("birthdays:list"))
     return  render(
         request,
         'birthday/birthday_form.html', {
