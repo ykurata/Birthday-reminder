@@ -3,12 +3,14 @@
 {% block body_content %}
   <div class="container">
     <h2>Sign Up</h2>
-      <form method="POST" enctype="multipart/form-data" style="text-align:left">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="button" style="text-align:center">
-          <button type="submit" class="submit-button">Sign Up</button>
-        </div>
-      </form>
+      <div class="grid-60" style="width:60%;text-align:center;margin-right:20%;margin-left:20%">
+        <form method="POST" enctype="multipart/form-data" style="text-align:left">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="button" style="text-align:center">
+            <button type="submit" class="submit-button">Sign Up</button>
+          </div>
+        </form>
+      </div>
   </div>
 {% endblock %}

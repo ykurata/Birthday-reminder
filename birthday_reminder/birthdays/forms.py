@@ -6,6 +6,11 @@ class BirthdayFrom(forms.ModelForm):
         model = models.Birthday
         fields = [
             "name",
-            "month",
-            "day"
+            "date_of_birth"
         ]
+
+    date_of_birth = forms.DateField(
+        widget=forms.DateInput(format='%Y-%m-%d'),
+        input_formats=('%Y-%m-%d', ),
+        help_text = "yyyy-mm-dd"
+        )

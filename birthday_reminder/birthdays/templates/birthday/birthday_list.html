@@ -2,15 +2,55 @@
 {% load static from staticfiles %}
 
 {% block body_content %}
+  <div id="message">
+    {% for day in bday %}
+      {% if day.user == request.user %}
+      <h3>{{ day.name }} turned {{ day.age }} years old today! Happy birthday {{ day.name }} !<h3>
+      {% endif %}
+    {% endfor %}
+  </div>
   <div class="container">
-    {% for birthday in birthdays %}
+    <h2>All Birthdays</h2>
+
+    <table id="birthdays">
+      <tr>
+        <th>Name</th>
+        <th>Date of Birth</th>
+      </tr>
+      {% for birthday in birthdays %}
+        {% if birthday.user == request.user %}
+        <tr>
+          <td>
+            {{ birthday.name }}
+          </td>
+          <td>
+            {{ birthday.date_of_birth }}
+
+            <a href="{% url "birthdays:edit" pk=birthday.pk %}">
+              <i class="fas fa-pen" style="margin-left:10px"></i>
+            </a>
+            <a href="{% url "birthdays:confirm" pk=birthday.pk %}">
+              <i class="fas fa-trash-alt" style="margin-left:10px"></i>
+            </a>
+
+          </td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+
+
+
+    <!-- {% for birthday in birthdays %}
       <div class="inner-container" style="background-color:pink">
         <div class="list-container">
-          <h4><b>{{ birthday.month }} {{ birthday.day }}</b></h4>
-          <p>{{ birthday.name }}</p>
+          <a href="{% url "birthdays:edit" pk=birthday.pk %}">
+            <h4><b>{{ birthday.date_of_birth }}</b></h4>
+            <p>{{ birthday.name }}</p>
+          <a>
         </div>
       </div>
-    {% endfor %}
+    {% endfor %} -->
   </div>
 
 {% endblock %}

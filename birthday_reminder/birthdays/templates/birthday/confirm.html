@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block body_content %}
+  <div class="container">
+    <h3>Are you sure you want to remove {{ birthday.name }}'s birthday ?</h3>
+    <button class="submit-button"><a href="{% url 'birthdays:delete' pk=birthday.pk %}" style="color:black">Yes</a></button>
+    <div class="cancel-div">
+      <a href="{% url "birthdays:list" %}" class="cancel-button">Cancel</a>
+    <div>
+  </div>
+{% endblock %}

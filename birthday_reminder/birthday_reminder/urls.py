@@ -14,9 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls import handler404, handler500
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-
 
 from . import settings, views
 
@@ -26,5 +26,8 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls', namespace="accounts")),
     url(r'^birthdays/', include('birthdays.urls', namespace="birthdays")),
 ]
+
+handler404 = 'accounts.views.page_not_found'
+handler404 = 'birthdays.views.page_not_found'
 
 urlpatterns += staticfiles_urlpatterns()

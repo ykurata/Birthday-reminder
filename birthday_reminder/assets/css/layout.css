@@ -1,21 +1,19 @@
-body {
+html {
   background: url('/static/images/blue.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font-family: 16px Arial, Helvetica, sans-serif;
 }
 
-a {
+body {
+  padding: 50px;
+  font: 16px Arial, Helvetica, sans-serif;
+}
+
+ a {
   text-decoration: none;
-  color: white;
 }
-
-a:hover {
-  color: black;
-}
-
 
 
 /* Style for nav bar  */
@@ -29,28 +27,29 @@ nav {
   width: 100%;
 }
 
-nav h2 {
+nav h2 a {
   font-size: 30px;
   color: white;
   margin-left: 40px;
 };
 
-nav h2:hover {
+nav h2 a:hover {
   color: black;
 }
 
 nav ul {
   list-style: none;
+
 }
 
 nav ul li {
   display: inline-block;
-  margin-right: 40px
+  margin-right: 40px;
 }
 
 nav ul li a {
-  text-decoration: none;
   color: white;
+  font-weight: bold;
 }
 
 nav ul li a:hover {
@@ -63,25 +62,6 @@ nav ul li.username {
   font-weight: bold;
   margin-left: 0;
 }
-
-
-
-/* nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-}
-
-
-
-nav h2 {
-  color: black;
-  margin-left: 40px;
-}
-
-nav h2:hover {
-  color: white;
-} */
 
 
 /* Style for home.html  */
@@ -102,14 +82,33 @@ nav h2:hover {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.home h2 a {
+  color: white;
+}
+
+.home h2 a:hover {
+  color: black;
+}
 
 /* Style for forms */
+#message {
+  width: 60%;
+  text-align: center;
+  color: white;
+  margin-top: 100px;
+  margin-left: 230px;
+}
+
+#message h3 {
+  text-align: center;
+}
+
 .container {
   width: 60%;
   text-align: center;
   background-color: white;
   border-radius: 10px;
-  margin-top: 200px;
+  margin-top: 150px;
   margin-left: 230px;
   border: 1px solid #aaa;
   box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
@@ -124,15 +123,55 @@ form {
   margin-right: 20px;
 }
 
+form .cancel-div {
+  margin-bottom: 20px;
+}
+
+form .cancel {
+  color: black;
+}
+
+form .cancel:hover {
+  color: grey;
+}
+
+
+/* Style for input fields */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  font-family: "Work Sans", sans-serif;
+}
+
+input:focus {
+  outline: none;
+  border-radius: 8px;
+  border: 2px solid #f09ce8;
+}
+
+.gird-60 {
+  width: 60%;
+  text-align: center;
+  margin-left: 20%;
+  margin-left: 20%;
+}
+
+
+/* Style for submit button */
 button[type="submit"] {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   margin-top: 20px;
 }
 
-/* Style for submit button */
 .submit-button {
-  background-color: #f09ce8; /* Green */
+  background-color: #f09ce8;
   border: none;
   border-radius: 20px;
   color: white;
@@ -160,3 +199,48 @@ button[type="submit"] {
 
 
 /* Style for birthday list  */
+#birthdays {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#birthdays td, #birthdays th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#birthdays td a {
+  color:black;
+}
+
+#birthdays td a:hover {
+  color:grey;
+}
+
+#birthdays tr:nth-child(even){background-color: #f2f2f2;}
+
+#birthdays tr:hover {background-color: #ddd;}
+
+#birthdays th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #f09ce8;
+  color: white;
+}
+
+
+/* Style for cancel confirmation page */
+.cancel-div {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.cancel-button {
+  color: black;
+}
+
+.cancel-button:hover {
+  color: grey;
+}
