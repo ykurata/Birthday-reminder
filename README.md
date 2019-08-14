@@ -1,6 +1,6 @@
 # Python Birthday Reminder
 
-This is an app thats helps you to remember your friends birthdays.
+This is an app that helps you to remember your friends birthdays.
 User can login and save, edit or delete birthdays you don't want to forget.
 This is a notification on the day of your friends or family birthday.
 
@@ -13,16 +13,16 @@ This is a notification on the day of your friends or family birthday.
 
   Run `pip install -r requirements.txt`
 
-  * Start the server
+* Start the server
 
   `python manage.py runserver 0.0.0.0:8000`
 
-  * Open http://localhost:8000
+* Open http://localhost:8000
 
 
 ## Description
 
-* You need to sign up and create an account.
-* You need to sing in to see birthdays you created.
+* User need to sign up and create an account.
+* User need to sing in to see birthdays the user created.
 * Only sign in user can create, edit, and delete birthdays the user created.
-* There is a notification on the day of your friends or family birthdays. 
+* There is a notification on the day of your friends or family birthdays.
