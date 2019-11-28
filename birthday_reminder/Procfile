@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath birthday_reminder birthday_reminder.deploy --log-file -
